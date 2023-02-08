@@ -1,0 +1,9 @@
+{
+    "WebshellMenuKautocompletemenusea": {
+        "screenshot": ".images\\webshellmenukautocompletemenusea-screenshot.png",
+        "source": "https://gl034jaerpc496.qad.com/clouderp/#/view/webshell/home",
+        "strategy": "id",
+        "type": "browser",
+        "value": "webshellMenu_kAutoCompleteMenuSearch"
+    }
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230207 12:31:47.784" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\kamma.naveen\.vscode\extensions\robocorp.robotframework-lsp-1.9.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Load config file">
+<var>${dict}</var>
+<msg timestamp="20230207 12:31:49.438" level="FAIL">No keyword with name 'Load config file' found.</msg>
+<status status="FAIL" starttime="20230207 12:31:49.438" endtime="20230207 12:31:49.438"/>
+</kw>
+<kw name="Open QAD website">
+<arg>${dict}</arg>
+<status status="NOT RUN" starttime="20230207 12:31:49.440" endtime="20230207 12:31:49.441"/>
+</kw>
+<kw name="Log in to the home page">
+<arg>${dict}</arg>
+<status status="NOT RUN" starttime="20230207 12:31:49.442" endtime="20230207 12:31:49.442"/>
+</kw>
+<kw name="Navigate to quality orders and get orders data to a text file">
+<status status="NOT RUN" starttime="20230207 12:31:49.444" endtime="20230207 12:31:49.444"/>
+</kw>
+<kw name="Get user input">
+<var>${status}</var>
+<status status="NOT RUN" starttime="20230207 12:31:49.445" endtime="20230207 12:31:49.447"/>
+</kw>
+<kw name="Get the count of orders according to the required order status">
+<arg>${status}</arg>
+<status status="NOT RUN" starttime="20230207 12:31:49.452" endtime="20230207 12:31:49.452"/>
+</kw>
+<status status="PASS" starttime="20230207 12:31:47.837" endtime="20230207 12:31:51.952"/>
+</kw>
+<status status="PASS" starttime="20230207 12:31:47.837" endtime="20230207 12:31:51.953"/>
+</test>
+<status status="PASS" starttime="20230207 12:31:47.787" endtime="20230207 12:31:51.957"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
