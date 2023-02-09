@@ -15,10 +15,10 @@ Library             Collections
 Minimal task
     ${dict}=    Load config file
     TRY
-        #Open QAD website    ${dict}
-        #Log in to the home page    ${dict}
-        # Navigate to quality orders
-        # Get orders data to a text file
+        Open QAD website    ${dict}
+        Log in to the home page    ${dict}
+        Navigate to quality orders
+        Get orders data to a text file
         ${status}=    Get user input
         Get the count of orders according to the user input    ${status}
     EXCEPT    message
@@ -119,7 +119,7 @@ Get orders data to a text file
 Get user input
     Add heading    please select required status
     Add drop-down    status    Closed,Canceled,Open
-    ${status}=    Run dialog    lengt=600    width=700
+    ${status}=    Run dialog
 
     log    ${status}
     ${status}=    Set Variable    ${status}[status]
@@ -140,4 +140,4 @@ Get the count of orders according to the user input
     END
     Log    ${result}
     Add text    Total number of ${status} orders are ${result}
-    Run dialog    length=600    width=700
+    Run dialog
