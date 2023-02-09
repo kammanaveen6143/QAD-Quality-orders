@@ -15,9 +15,10 @@ Library             Collections
 Minimal task
     ${dict}=    Load config file
     TRY
-        Open QAD website    ${dict}
-        Log in to the home page    ${dict}
-        Navigate to quality orders and get orders data to a text file
+        #Open QAD website    ${dict}
+        #Log in to the home page    ${dict}
+        # Navigate to quality orders
+        # Get orders data to a text file
         ${status}=    Get user input
         Get the count of orders according to the user input    ${status}
     EXCEPT    message
@@ -46,7 +47,7 @@ Load config file
 Open QAD website
     [Arguments]    ${dict}
     Log    ${dict}[url]
-    Open Chrome Browser    ${dict}[url]
+    Open Available Browser    ${dict}[url]    browser_selection=chrome
 
 Log in to the home page
     [Arguments]    ${dict}
@@ -54,23 +55,24 @@ Log in to the home page
     Input Text    password    ${dict}[Password]
     Click Button    logInBtn
 
-Navigate to quality orders and get orders data to a text file
+Navigate to quality orders
     Click Button When Visible    webshellMenu_menuSearchButton
     Sleep    2sec
     Input Text    webshellMenu_kAutoCompleteMenuSearch    Quality Orders
     Click Element When Visible    //*[@id="webshellMenu_kAutoCompleteMenuSearch_listbox"]/li[1]/a/div/div/span[1]
     Sleep    2s
-    TRY
-        Wait Until Element Is Visible    //*[@id="qGridContent"]
-    EXCEPT    message
+    ${grid}=    Page Should Not Contain Element    //*[@id="qGridContent"]
+    IF    ${grid}== True
+        Log    navigated sucessfully
+    ELSE
         Click Button When Visible    webshellMenu_menuSearchButton
         Sleep    2sec
         Input Text    webshellMenu_kAutoCompleteMenuSearch    Quality Orders
         Click Element When Visible    //*[@id="webshellMenu_kAutoCompleteMenuSearch_listbox"]/li[2]/a/div/div/span[1]
         Sleep    2s
-        Wait Until Element Is Visible    //*[@id="qGridContent"]
     END
 
+Get orders data to a text file
     ${iddt}=    Get Text    //*[@id="qGridContent"]
     Create File    orders.txt    overwrite=True
     Sleep    2s
@@ -117,7 +119,8 @@ Navigate to quality orders and get orders data to a text file
 Get user input
     Add heading    please select required status
     Add drop-down    status    Closed,Canceled,Open
-    ${status}=    Run dialog
+    ${status}=    Run dialog    lengt=600    width=700
+
     log    ${status}
     ${status}=    Set Variable    ${status}[status]
     Log    ${status}
@@ -137,4 +140,4 @@ Get the count of orders according to the user input
     END
     Log    ${result}
     Add text    Total number of ${status} orders are ${result}
-    Run dialog
+    Run dialog    length=600    width=700
